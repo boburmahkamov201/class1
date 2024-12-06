@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+class Car{
+public:
+    string brand;
+    int speed;
+public:
+    Car(string b, int s){
+        speed = s;
+        brand = b;
+    }
+    void Speedset(int s){
+        speed = s;
+    }
+    void display(){
+        cout<<"Car brand: "<<brand<<endl;
+        cout<<"Car speed: "<<speed<<" km/h"<<endl;
+        
+    }
+    bool operator>(Car c){
+        return speed<c.speed;
+    }
+    
+};
+int main(){
+    Car car1("Toyota ",120);
+    Car car2("Cobalt ",200);
+    car1.display();
+    car2.display();
+    car2.Speedset(100);
+    if(car1 > car2) cout << car1.brand << "Faster than " << car2.brand << endl;
+    else cout<<car2.brand<<"Lower than "<<car1.brand<<endl;
+    
+    return 0;
+}
